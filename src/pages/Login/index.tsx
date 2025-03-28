@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import Logo from "../../assets/logo.svg";
+import wallpaper from "../../assets/wallpaper-home.jpg";
 import * as S from "./style";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
-import { useNavigate } from "react-router-dom";
+import useAuthorizeLogin from "../../hooks/useAuthorization";
+import useWindowSize from "../../hooks/useWindowsize";
 
 const Login = () => {
-  const [username, setUsername] = useState<string>("");
+  const [user, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const navigation = useNavigate();
+  const { width } = useWindowSize();
+
+  const { onValidateLogin, feedbackMessage } = useAuthorizeLogin();
 
   const onChangeUsername = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value);
@@ -19,19 +23,24 @@ const Login = () => {
   }
 
   const handleOnClick = () => {
-    navigation("/pedido-de-provadores");
+    onValidateLogin({ user, password });
   }
 
   // TODO: validação de erro 
-
   return (
     <S.Container>
+      {width > 1025 ? (
+          <S.WrapperWallpaper>
+            <img src={wallpaper} />
+          </S.WrapperWallpaper>
+        ) : null
+      }
       <S.Wrapper>
         <img src={Logo} alt="Logo da pdvez" />
         <S.InputsWrapper>
           <Input 
             placeholder="usuário"
-            value={username}
+            value={user}
             onChange={onChangeUsername}
           />
           <Input 
