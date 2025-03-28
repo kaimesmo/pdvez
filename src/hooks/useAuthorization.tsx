@@ -37,7 +37,7 @@ const useAuthorizeLogin = () => {
         const response = error as AxiosError;
         console.log(response)
         setFeedbackMessage('Ocorreu um erro')
-        throw new Error(response);
+        throw new Error(response as unknown as string);
       } finally {
         setLoading(false);
       }

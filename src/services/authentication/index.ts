@@ -21,7 +21,7 @@ interface AuthorizationOutput {
 export const postAuthorization =  async (data: AuthorizationInput): Promise<AuthorizationOutput> => {
   const { user, password, token } = data;
   const urlHML = "https://pdveztestes.ddns.net/auth/login"
-  const urlPRD = "https://pdvez.com.br/auth/login"
+  // const urlPRD = "https://pdvez.com.br/auth/login"
 
   const payload = {
     user,

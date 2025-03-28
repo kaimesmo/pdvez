@@ -15,7 +15,7 @@ interface TokenOutput {
 export const postToken =  async (data: TokenInput): Promise<TokenOutput> => {
   const { user, password } = data;
   const urlHML = "https://pdveztestes.ddns.net/token"
-  const urlPROD = 'https://pdvez.com.br/token'
+  // const urlPROD = 'https://pdvez.com.br/token'
 
   const payload = {
     user,

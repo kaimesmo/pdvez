@@ -14,6 +14,8 @@ const Login = () => {
 
   const { onValidateLogin, feedbackMessage } = useAuthorizeLogin();
 
+  console.log(feedbackMessage)
+
   const onChangeUsername = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value);
   }

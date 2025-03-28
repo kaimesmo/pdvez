@@ -13,10 +13,12 @@ const Provadores = () => {
 
   const onChangeStore = (event: React.ChangeEvent<HTMLInputElement>) => {
     setStore(event.target.value);
+    console.log('store', store)
   }
 
   const onChangeBrand = (event: React.ChangeEvent<HTMLInputElement>) => {
     setBrand(event.target.value);
+    console.log('brand', store)
   }
 
   const goBack = () => {
