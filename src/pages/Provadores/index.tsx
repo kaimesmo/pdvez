@@ -18,7 +18,7 @@ const Provadores = () => {
 
   const onChangeBrand = (event: React.ChangeEvent<HTMLInputElement>) => {
     setBrand(event.target.value);
-    console.log('brand', store)
+    console.log('brand', brand)
   }
 
   const goBack = () => {
