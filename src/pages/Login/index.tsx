@@ -5,12 +5,12 @@ import * as S from "./style";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import useAuthorizeLogin from "../../hooks/useAuthorization";
-import useWindowSize from "../../hooks/useWindowsize";
+import useResize from "../../hooks/useResize";
 
 const Login = () => {
   const [user, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const { width } = useWindowSize();
+  const { width } = useResize();
 
   const { onValidateLogin, feedbackMessage } = useAuthorizeLogin();
 
